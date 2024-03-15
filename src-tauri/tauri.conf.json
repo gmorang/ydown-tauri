@@ -23,9 +23,20 @@
     },
     "windows": [
       {
-        "title": "ydown",
-        "width": 800,
-        "height": 600
+        "fullscreen": false,
+        "resizable": false,
+        "title": "menubar",
+        "width": 280,
+        "height": 350,
+        "visible": false,
+        "hiddenTitle": true,
+        "titleBarStyle": "Overlay",
+        "alwaysOnTop": true,
+        "closable": false,
+        "minimizable": false,
+        "decorations": false,
+        "focus": false,
+        "transparent": true
       }
     ],
     "security": {
