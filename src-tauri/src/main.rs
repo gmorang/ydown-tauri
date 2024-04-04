@@ -1,7 +1,7 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use tauri::{CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu};
+use tauri::{Manager, SystemTray, SystemTrayEvent, SystemTrayMenu};
 use tauri_plugin_positioner::{Position, WindowExt};
 use window_vibrancy::{apply_vibrancy, NSVisualEffectMaterial, NSVisualEffectState};
 
@@ -9,9 +9,7 @@ use window_vibrancy::{apply_vibrancy, NSVisualEffectMaterial, NSVisualEffectStat
 #[tauri::command]
 
 fn main() {
-    let quit = CustomMenuItem::new("quit".to_string(), "Quit").accelerator("Cmd + Q");
-
-    let tray_menu = SystemTrayMenu::new().add_item(quit);
+    let tray_menu = SystemTrayMenu::new();
 
     tauri::Builder::default()
         .plugin(tauri_plugin_positioner::init())
@@ -59,7 +57,7 @@ fn main() {
                     "quit" => {
                         std::process::exit(0);
                     }
-                    _ => {} // Add a wildcard to cover all other possible values
+                    _ => {}
                 },
                 _ => {}
             }
